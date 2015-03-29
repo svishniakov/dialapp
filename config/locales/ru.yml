@@ -34,3 +34,5 @@ ru:
   qty: "Кол-во"
   Job: "Работа"
   jobs: "Работы"
+  service_types: "Типы сервисов"
+  Service: "Сервис"

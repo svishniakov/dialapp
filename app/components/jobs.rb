@@ -15,7 +15,7 @@ class Jobs < MasterGrid
   def default_fields_for_forms
     [
         { name: :procedure__name, field_label: I18n.t(:Procedure) },
-        { name: :qty, field_label: I18n.t(:qty)  },
+        { name: :qty, field_label: I18n.t(:qty), hide_trigger: true },
         { name: :start_date, field_label: I18n.t(:start_date) },
         { name: :end_date, field_label: I18n.t(:end_date) },
         { name: :notes, field_label: I18n.t(:notes) }
