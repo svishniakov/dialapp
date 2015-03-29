@@ -42,7 +42,7 @@ class Users < Netzke::Basepack::Grid
     preconfigure_record_window(c)
     c.resizable = true
     c.width = 500
-    c.title = I18n.t(:edit)
+    c.title = I18n.t(:edit) + I18n.t(data_class)
     c.items = [:edit_form]
   end
 end

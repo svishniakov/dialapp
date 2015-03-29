@@ -82,6 +82,13 @@ class Application < Netzke::Basepack::Viewport
             :expanded => true,
             :children => [
                 {
+                    :text => I18n.t(:company_settings),
+                    :expanded => true,
+                    :children => [
+                        leaf(I18n.t(:branches), :Branches, :house)
+                    ]
+                },
+                {
                     :text => I18n.t(:system),
                     :expanded => true,
                     :children => [
@@ -125,5 +132,6 @@ class Application < Netzke::Basepack::Viewport
   # References
   #
   component :users
+  component :branches
 
 end
