@@ -33,16 +33,16 @@ namespace :deploy do
 end
 
 namespace :rails do
-  desc 'Open a rails console `cap [staging] rails:console [server_index default: 0]`'
+  desc "Run the console on a remote server."
   task :console do
-    server = roles(:app)[ARGV[2].to_i]
+    on roles(:app) do |h|
+      execute_interactively "RAILS_ENV=#{fetch(:rails_env)} bundle exec rails console", h.user
+    end
+  end
 
-    puts "Opening a console on: #{server.hostname}...."
-
-    cmd = "ssh -p 7812 #{server.user}@#{server.hostname} -t 'cd #{fetch(:deploy_to)}/current && RAILS_ENV=#{fetch(:rails_env)} bundle exec rails console'"
-
-    puts cmd
-
+  def execute_interactively(command, user)
+    info "Connecting with #{user}@#{host}"
+    cmd = "ssh #{user}@#{host} -p 7812 -t 'cd #{fetch(:deploy_to)}/current && #{command}'"
     exec cmd
   end
 end
