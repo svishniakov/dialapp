@@ -82,6 +82,13 @@ class Application < Netzke::Basepack::Viewport
             :expanded => true,
             :children => [
                 {
+                    :text => I18n.t(:jobs),
+                    :expanded => true,
+                    :children => [
+                        leaf(I18n.t(:jobs), :Jobs, :clock)
+                    ]
+                },
+                {
                     :text => I18n.t(:company_settings),
                     :expanded => true,
                     :children => [
@@ -135,5 +142,6 @@ class Application < Netzke::Basepack::Viewport
   component :users
   component :branches
   component :procedures
+  component :jobs
 
 end
