@@ -32,5 +32,6 @@ group :development, :test do
   gem 'capistrano-rvm', require: false
   gem 'capistrano-passenger', '0.0.2'
   gem 'capistrano-rails-collection'
+  gem 'capistrano-rails-console'
 end
 
