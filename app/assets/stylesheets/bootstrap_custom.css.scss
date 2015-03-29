@@ -1,0 +1,30 @@
+a:hover {
+  text-decoration: none;
+}
+
+.center {
+  text-align: center;
+}
+
+.left {
+  text-align: left;
+}
+
+.right {
+  text-align: right;
+}
+
+.header {
+  font-size: 14px;
+  color: #1F81C9;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.padding {
+  padding: 10px;
+}
+@import "bootstrap-sprockets";
+@import "bootstrap";

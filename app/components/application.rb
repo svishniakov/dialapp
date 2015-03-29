@@ -6,6 +6,17 @@ class Application < Netzke::Basepack::Viewport
   end
 
   def configure(c)
+    current_user = Netzke::Base.controller.current_user
+    @user = current_user.name.nil? ? current_user.email : current_user.name
+
+    if current_user.active? && current_user.admin?
+      menu = menu_admin
+    elsif current_user.active?
+      menu = menu_user
+    else
+      menu = menu_empty
+    end
+
     super
     c.items = [
         { layout: :border,
@@ -13,12 +24,12 @@ class Application < Netzke::Basepack::Viewport
               {
                   region: :west,
                   item_id: :navigation,
-                  width: 200,
+                  width: 300,
                   split: true,
                   xtype: :treepanel,
                   root: menu,
                   root_visible: false,
-                  title: 'Main panel',
+                  title: I18n.t(:main_menu),
                   collapsible: true
               },
               {
@@ -35,7 +46,7 @@ class Application < Netzke::Basepack::Viewport
                   item_id: :header,
                   height: 40,
                   frame: true,
-                  html: '<h4 align="center">DialApp</h4>'
+                  html: header_html
               }
           ]
         }
@@ -43,6 +54,19 @@ class Application < Netzke::Basepack::Viewport
   end
 
   protected
+
+  def header_html
+    %Q{
+      <div class="row padding">
+        <div class="col-md-1 center header bold">Dial App</div>
+        <div class="col-md-5 right header">#{@user}</div>
+        <div class="col-md-5 left header">#{Time.zone.now}</div>
+        <div class="col-md-1 center header"><a href="/users/sign_out">Logout</a></li></div>
+      </div>
+
+    }
+  end
+
 
   def leaf(text, component, icon = nil)
     { text: text,
@@ -53,17 +77,53 @@ class Application < Netzke::Basepack::Viewport
     }
   end
 
-  def menu
-    out = { :text => 'Main menu',
+  def menu_admin
+    out = { :text => I18n.t(:main_menu),
             :expanded => true,
             :children => [
-                # leaf('Document Statuses', :DocStatuses )
-            ]}
+                {
+                    :text => I18n.t(:system),
+                    :expanded => true,
+                    :children => [
+                        leaf(I18n.t(:users), :Users, :group)
+                    ]
+                }
+            ]
+
+            }
+  end
+
+  def menu_user
+    out = { :text => I18n.t(:main_menu),
+            :expanded => true,
+            :children => [
+                {
+                    :text => I18n.t(:equipment),
+                    :expanded => true,
+                    :children => [
+                        # leaf(I18n.t(:users), :Users, :group)
+                    ]
+                }
+            ]
+
+    }
+  end
+
+
+  def menu_empty
+    out = { :text => I18n.t(:main_menu),
+            :expanded => true,
+            :children => [
+                {
+                    :text => I18n.t(:contact_admin)
+                }
+            ]
+    }
   end
 
   #
   # References
   #
-  # component :currencies
+  component :users
 
 end
