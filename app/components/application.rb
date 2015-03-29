@@ -85,7 +85,8 @@ class Application < Netzke::Basepack::Viewport
                     :text => I18n.t(:company_settings),
                     :expanded => true,
                     :children => [
-                        leaf(I18n.t(:branches), :Branches, :house)
+                        leaf(I18n.t(:branches), :Branches, :house),
+                        leaf(I18n.t(:procedures), :Procedures, :heart)
                     ]
                 },
                 {
@@ -133,5 +134,6 @@ class Application < Netzke::Basepack::Viewport
   #
   component :users
   component :branches
+  component :procedures
 
 end
