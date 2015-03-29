@@ -36,3 +36,7 @@ ru:
   jobs: "Работы"
   service_types: "Типы сервисов"
   Service: "Сервис"
+  equipment_service: "Обслуживание оборудования"
+  commissioning: "Введено в эксплуатацию"
+  serial: "Номер"
+  Equipment: "Оборудование"

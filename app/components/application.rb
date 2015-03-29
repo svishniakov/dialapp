@@ -89,12 +89,19 @@ class Application < Netzke::Basepack::Viewport
                     ]
                 },
                 {
+                    :text => I18n.t(:equipment),
+                    :expanded => true,
+                    :children => [
+                        leaf(I18n.t(:equipment_service), :EquipmentServices, :table_gear)
+                    ]
+                },
+                {
                     :text => I18n.t(:company_settings),
                     :expanded => true,
                     :children => [
                         leaf(I18n.t(:branches), :Branches, :house),
                         leaf(I18n.t(:procedures), :Procedures, :heart),
-                        leaf(I18n.t(:service_types), :ServiceTypes, :ruby_gear)
+                        leaf(I18n.t(:service_types), :ServiceTypes, :wrench)
                     ]
                 },
                 {
@@ -145,5 +152,6 @@ class Application < Netzke::Basepack::Viewport
   component :procedures
   component :jobs
   component :service_types
+  component :equipment_services
 
 end

@@ -19,9 +19,9 @@ class Users < Netzke::Basepack::Grid
         { name: :name, header: I18n.t(:name),flex: 1 },
         { name: :email, flex: 1 },
         { name: :sign_in_count, header: I18n.t(:sign_in_count), flex: 1 },
-        { name: :current_sign_in_at, header: I18n.t(:current_sign_in_at), flex: 1 },
+        { name: :current_sign_in_at, header: I18n.t(:current_sign_in_at), flex: 1, format: 'd-m-Y' },
         { name: :current_ip, header: I18n.t(:current_sign_in_ip),flex: 1 },
-        { name: :last_sign_in_at, header: I18n.t(:last_sign_in_at),flex: 1 },
+        { name: :last_sign_in_at, header: I18n.t(:last_sign_in_at),flex: 1, format: 'd-m-Y' },
         { name: :last_ip, header: I18n.t(:last_sign_in_ip), flex: 1 },
         { name: :active, header: I18n.t(:active), flex: 1},
         { name: :admin, header: I18n.t(:admin), flex: 1 }

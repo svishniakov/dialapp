@@ -6,8 +6,8 @@ class Jobs < MasterGrid
     c.columns = [
         { name: :procedure__name, header: I18n.t(:Procedure) },
         { name: :qty, header: I18n.t(:qty) },
-        { name: :start_date, header: I18n.t(:start_date) },
-        { name: :end_date, header: I18n.t(:end_date) },
+        { name: :start_date, header: I18n.t(:start_date), format: 'd-m-Y' },
+        { name: :end_date, header: I18n.t(:end_date), format: 'd-m-Y' },
         { name: :notes, header: I18n.t(:notes), flex: 1}
     ]
   end
@@ -16,8 +16,8 @@ class Jobs < MasterGrid
     [
         { name: :procedure__name, field_label: I18n.t(:Procedure) },
         { name: :qty, field_label: I18n.t(:qty), hide_trigger: true },
-        { name: :start_date, field_label: I18n.t(:start_date) },
-        { name: :end_date, field_label: I18n.t(:end_date) },
+        { name: :start_date, field_label: I18n.t(:start_date), format: 'd-m-Y' },
+        { name: :end_date, field_label: I18n.t(:end_date), format: 'd-m-Y' },
         { name: :notes, field_label: I18n.t(:notes) }
     ]
   end
