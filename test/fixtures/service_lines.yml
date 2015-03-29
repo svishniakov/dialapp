@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  equipment_id: 
+  service_id: 
+  service_date: 2015-03-29
+  notes: MyText
+
+two:
+  equipment_id: 
+  service_id: 
+  service_date: 2015-03-29
+  notes: MyText

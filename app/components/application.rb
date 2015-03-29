@@ -24,7 +24,7 @@ class Application < Netzke::Basepack::Viewport
               {
                   region: :west,
                   item_id: :navigation,
-                  width: 300,
+                  width: 250,
                   split: true,
                   xtype: :treepanel,
                   root: menu,

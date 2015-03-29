@@ -31,6 +31,7 @@ class EquipmentServices < Netzke::Base
 
   component :service_lines do |c|
     c.klass = ServiceLines
+    c.disabled = true
     c.data_store = {auto_load: false}
     c.scope = {:equipment_id => component_session[:selected_equipment_id]}
     c.strong_default_attrs = {:equipment_id => component_session[:selected_equipment_id]}
